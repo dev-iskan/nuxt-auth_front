@@ -1,6 +1,6 @@
-const pkg = require('./package')
+import pkg from './package'
 
-module.exports = {
+export default {
   mode: 'universal',
 
   /*
@@ -37,7 +37,8 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/bulma'
   ],
   /*
   ** Axios module configuration
@@ -53,6 +54,15 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+    postcss: {
+      plugins: {
+        'postcss-preset-env': {
+          features: {
+            customProperties: false
+          }
+        }
+      }
+    },
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
