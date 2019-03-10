@@ -38,13 +38,28 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/bulma'
+    '@nuxtjs/bulma',
+    '@nuxtjs/auth'
   ],
   /*
   ** Axios module configuration
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    baseURL: 'http://nuxt-auth.test/api'
+  },
+
+  auth: {
+    // Options
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/login', method: 'post', propertyName: 'meta.token' },
+          user: { url: '/me', method: 'get', propertyName: 'data' },
+          logout: {}
+        }
+      }
+    }
   },
 
   /*

@@ -48,12 +48,12 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary">
+            <nuxt-link :to="{name:'auth-signup'}" class="button is-primary">
               <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
+            </nuxt-link>
+            <nuxt-link :to="{name:'auth-signin'}" class="button is-light">
               Log in
-            </a>
+            </nuxt-link>
           </div>
         </div>
       </div>
