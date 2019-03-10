@@ -29,7 +29,7 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: ['./plugins/mixins/user.js'],
 
   /*
   ** Nuxt.js modules
@@ -56,7 +56,7 @@ export default {
         endpoints: {
           login: { url: '/login', method: 'post', propertyName: 'meta.token' },
           user: { url: '/me', method: 'get', propertyName: 'data' },
-          logout: {}
+          logout: { url: '/logout', method: 'post', propertyName: 'data' }
         }
       }
     }
