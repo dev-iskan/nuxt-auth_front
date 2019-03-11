@@ -16,6 +16,10 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
+  router: {
+    middleware: ['clearValidationErrors']
+  },
+
   /*
   ** Customize the progress-bar color
   */
@@ -29,7 +33,11 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['./plugins/mixins/user.js'],
+  plugins: [
+    './plugins/mixins/user.js',
+    './plugins/mixins/validation.js',
+    './plugins/axios.js'
+  ],
 
   /*
   ** Nuxt.js modules

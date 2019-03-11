@@ -12,7 +12,18 @@
                 Email
               </label>
               <div class="control">
-                <input v-model="form.email" class="input" type="email" placeholder="e.g. alex@codecourse.com">
+                <input
+                  v-model="form.email"
+                  :class="{
+                    'is-danger': errors.email
+                  }"
+                  class="input"
+                  type="email"
+                  placeholder="e.g. alex@codecourse.com"
+                >
+                <p v-if="errors.email" class="help is-danger">
+                  {{ errors.email[0] }}
+                </p>
               </div>
             </div>
 
@@ -21,7 +32,17 @@
                 Password
               </label>
               <div class="control">
-                <input v-model="form.password" class="input" type="password">
+                <input
+                  v-model="form.password"
+                  :class="{
+                    'is-danger': errors.password
+                  }"
+                  class="input"
+                  type="password"
+                >
+                <p v-if="errors.password" class="help is-danger">
+                  {{ errors.password[0] }}
+                </p>
               </div>
             </div>
 
@@ -51,13 +72,18 @@ export default {
   },
   methods: {
     async signin() {
-      await this.$auth.loginWith('local', {
-        data: this.form
-      })
+      try {
+        await this.$auth.loginWith('local', {
+          data: this.form
+        })
+      } catch (e) {
+        /* eslint-disable no-console */
+        console.log(e)
+      }
 
-      this.$router.replace({
-        name: 'index'
-      })
+      // this.$router.replace({
+      //   name: 'index'
+      // })
     }
   }
 }
