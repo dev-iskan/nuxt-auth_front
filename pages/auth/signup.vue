@@ -104,8 +104,7 @@ export default {
           }
         })
       } catch (e) {
-        /* eslint-disable no-console */
-        console.log(e)
+        Promise.reject(e)
       }
     }
   }

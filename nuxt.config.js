@@ -70,8 +70,10 @@ export default {
     },
     redirect: {
       login: '/auth/signin',
-      home: '/'
-    }
+      logout: '/',
+      home: false
+    },
+    watchLoggedIn: false // this enables redirect if login or logout fired, but when it falls it doesn't
   },
 
   /*

@@ -28,7 +28,7 @@
         </template>
         <template v-if="authenticated">
           <div class="navbar-item has-dropdown is-hoverable">
-            <a href="#" class="navbar-link">
+            <a @click.prevent="" href="#" class="navbar-link">
               {{ user.name }}
             </a>
             <div class="navbar-dropdown is-right">
