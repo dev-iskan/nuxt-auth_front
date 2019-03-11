@@ -82,6 +82,7 @@
 
 <script>
 export default {
+  middleware: 'guest',
   data() {
     return {
       form: {
@@ -106,10 +107,6 @@ export default {
         /* eslint-disable no-console */
         console.log(e)
       }
-
-      // this.$router.replace({
-      //   name: 'index'
-      // })
     }
   }
 }

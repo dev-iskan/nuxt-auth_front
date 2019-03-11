@@ -67,6 +67,10 @@ export default {
           logout: { url: '/logout', method: 'post', propertyName: 'data' }
         }
       }
+    },
+    redirect: {
+      login: '/auth/signin',
+      home: '/'
     }
   },
 
